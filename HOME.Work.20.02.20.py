@@ -6,5 +6,6 @@ def summation(num):
 def list_animals(animals):
     return ''.join(str(i + 1) + '. ' + animals[i] + '\n' for i in range(0, len(animals)))
 
-#Приберіть час
-shorten_to_date = lambda d: d[:d.find(",")]
+#Подвійна куля
+def double_char(s):
+    return ''.join(char * 2 for char in s)
