@@ -1,7 +1,7 @@
 from tkinter import *  
 
 
-class Paint(Frame):                    # Класовий підхід
+class Paint(Frame):                    
 
     def __init__(self, parent):
         Frame.__init__(self, parent)
@@ -26,25 +26,25 @@ class Paint(Frame):                    # Класовий підхід
 
     def setUI(self):
 
-        self.parent.title("Малювалка PyPaint")  # Встановлюємо назву вікна 
-        self.pack(fill=BOTH, expand=1)  # Розміщуємо активні елементи на батьківському вікні 
+        self.parent.title("Малювалка PyPaint")  
+        self.pack(fill=BOTH, expand=1)  
 
-        self.columnconfigure(6, weight=1) # Даємо сьомому стовпчику можливість розтягуватись, завдяки чому кнопки не будуть розїжатись при ресайзі.  
-        self.rowconfigure(2, weight=1) # Таке ж робимо для третього ряду.
+        self.columnconfigure(6, weight=1) 
+        self.rowconfigure(2, weight=1) 
 
-        self.canv = Canvas(self, bg="white")  # Створюємо поле для малювання, встановлюємо білий фон.
+        self.canv = Canvas(self, bg="white")  
         self.canv.grid(row=2, column=0, columnspan=7,
-                       padx=5, pady=5, sticky=E+W+S+N)  # Закріпляємо канвас методом grid. Він буде знаходитись в 3му ряді, першого стовчика, і буде займати 7 колонок, задаємо відступи по X і Y  в 5 пікселів, і змушуєм розтягуватись при розтягувані цілого вікна. 
-        self.canv.bind("<B1-Motion>", self.draw) # <B1-Motion> Означає  "при рухуві затиснутої лівої кнопки миші" викликати функцію draw.
+                       padx=5, pady=5, sticky=E+W+S+N)  
+        self.canv.bind("<B1-Motion>", self.draw) 
 
-        color_lab = Label(self, text="Color: ") # Створюємо мітку для кнопок зміни кольору кисті.
-        color_lab.grid(row=0, column=0, padx=6) # Встановлюємо створену мітку в перший ряд і першу колонку, задаємо горизонтальний відступ в 6 пікселів. 
+        color_lab = Label(self, text="Color: ") 
+        color_lab.grid(row=0, column=0, padx=6)  
 
         red_btn = Button(self, text="Red", width=10,
-                         command=lambda: self.set_color("red")) # Створення кнопки: Встановлюємо текст кнопки, задаємо ширину кнопки (10 символов), функція викликана при натискані кнопки.
-        red_btn.grid(row=0, column=1) # Встановлюємо кнопку.
+                         command=lambda: self.set_color("red")) 
+        red_btn.grid(row=0, column=1) 
 
-                                      # Створюємо решту кнопок повторюючи попередню логіку, змінюємо лиш аргумент.  
+                                       
 
         green_btn = Button(self, text="Green", width=10,
                            command=lambda: self.set_color("green"))
